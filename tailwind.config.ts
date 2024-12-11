@@ -8,9 +8,8 @@ export default {
   ],
   theme: {
     extend: {
-     
       fontFamily: {
-        Montserrat:["montserrat","sans-serif"]
+        Montserrat: ['Montserrat', 'sans-serif']
       },
       colors: {
         background: "var(--background)",
