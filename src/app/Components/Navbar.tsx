@@ -1,84 +1,84 @@
-import React from 'react';
-import Link from 'next/link';
-import { LuPhone } from "react-icons/lu";
-import { BsEnvelope } from "react-icons/bs";
-import { RiArrowDropDownLine } from 'react-icons/ri';
-import { FaInstagram } from "react-icons/fa";
-import { GrYoutube } from "react-icons/gr";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { HiOutlineUser } from "react-icons/hi2";
-import { TbSearch } from "react-icons/tb";
-import { BsCart } from "react-icons/bs";
-import { IoMdHeartEmpty } from "react-icons/io";
+"use client";
+import Image from "next/image";
+import Link from "next/link"; 
+import user from "@/images/Vector (12).png";
+import search from "@/images/icn settings icn-xs (6).png";
+import cart from "@/images/icn settings icn-xs (7).png";
+import mail from "@/images/icn settings icn-xs (8).png";
+import { useState } from "react";
 
 export default function Navbar() {
-  return (
-    <header className='bg-white shadow-sm border-b mx-auto w-full'>
-      <div className='bg-[#252B42] text-white py-4 text-sm flex justify-between items-center px-8 w-full'>
-        <div className='flex items-center space-x-10'>
-          <LuPhone />
-          <span className='font-bold'>(225) 555-0118</span>
-          <BsEnvelope />
-          <div className='flex items-center ml-10'>
-            <span className='font-Montserrat font-semibold'>michelle.rivera@example.com</span>
-          </div>
-          <div className='flex items'>
-            <span className='font-Montserrat font-bold ml-28'>Follow Us and get a chance to win 80% off</span>
-          </div>
-        </div>
-        <div className='flex items-center gap-[2px]'>
-          <div className='text-white text-sm font-bold leading-[21px] flex items-center space-x-5'>
-            <span>Follow Us :</span>
-            <FaInstagram />
-            <GrYoutube />
-            <FaFacebook />
-            <FaTwitter />
-          </div>
-        </div>
-      </div>
-       
-      {/* Main Nav */}
-      <div className='flex justify-between items-center px-8 py-4 max-w-[1440px] mx-auto'>
-        <h1 className='text-2xl font-bold text-black px-16'>Bandage</h1>
-        <div>
-          <ul className='hidden md:flex space-x-10 items-center'>
-            <li className='text-[#737373] hover:underline font-bold'>
-              <Link href={"/"}>Home</Link>
-            </li>
-            <li className='text-[#737373] hover:underline font-bold'>
-              <Link href={"/Product"}>
-                <div className='flex items-center space-x-1'>
-                  <span>Shop</span>
-                  <RiArrowDropDownLine />
-                </div>
-              </Link>
-            </li>
-            <li className='text-[#737373] hover:underline font-bold'>
-              <Link href={"/About"}>About</Link>
-            </li>
-            <li className='text-[#737373] hover:underline font-bold'>
-              <Link href={"/Contact"}>Contact</Link>
-            </li>
-            <li className='text-[#737373] hover:underline font-bold'>
-              <Link href={"/Pages"}>Pages</Link>
-            </li>
-          </ul>
-        </div>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-        {/* Icons */}
-        <div className='flex items-center gap-4'>
-          <div className='font-bold text-[#23A6F0] flex items-center space-x-2 py-3'>
-            <HiOutlineUser />
-            <span className='font-bold text-base'>login / Register</span>
-            <TbSearch />
-            <BsCart />
-            <h4 className='font-medium text-[#737373]'>1</h4>
-            <IoMdHeartEmpty />
-            <h4 className='font-medium text-[#737373]'>1</h4>
-          </div>
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  return (
+    <nav className="w-full bg-white shadow-md">
+      {/* Desktop Navbar */}
+      <div className="hidden lg:flex justify-between items-center px-6 lg:px-16 h-16">
+        {/* Logo */}
+        <h3 className="font-Montserrat font-semibold text-xl">Bandage</h3>
+
+        {/* Menu Links */}
+        <ul className="flex space-x-6 font-Montserrat text-sm text-gray-600">
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/shop">Shop</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+          <li><Link href="/pages">Pages</Link></li>
+        </ul>
+
+        {/* Icons Section */}
+        <div className="flex space-x-4 items-center">
+          <Image src={user} alt="user" width={16} height={16} />
+          <Image src={search} alt="search" width={16} height={16} />
+          <Image src={cart} alt="cart" width={16} height={16} />
+          <Image src={mail} alt="mail" width={16} height={16} />
         </div>
       </div>
-    </header>
+
+      {/* Mobile Navbar */}
+      <div className="lg:hidden flex justify-between items-center px-4 py-3">
+        {/* Logo */}
+        <h3 className="font-Montserrat font-semibold text-xl">Bandage</h3>
+
+        {/* Hamburger Menu for Mobile */}
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleMenu} className="text-[#252B42]">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="bg-[#bebebe] text-white flex flex-col items-center py-4 space-y-3">
+          <ul className="space-y-2 font-Montserrat text-base text-black">
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/shop">Shop</Link></li>
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/pages">Pages</Link></li>
+          </ul>
+          <button onClick={toggleMenu} className="text-sm text-black font-Montserrat">
+           - Close Menu -
+          </button>
+        </div>
+      )}
+    </nav>
   );
 }

@@ -1,108 +1,104 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-
-const Footer = () => {
-  return (
-    <footer className="bg-gray-50 text-gray-700">
-      <div className="container mx-auto px-6 py-10">
-        {/* Top Section: Logo and Social Icons with increased greyish background height */}
-        <div className="flex justify-between items-center mb-6 bg-gray-100 py-8 shadow-md">
-          {/* Logo */}
-          <h2 className="text-2xl font-bold text-gray-800">Bandage</h2>
-
-          {/* Social Icons */}
-          <div className="flex space-x-4">
-            <a href="#" className="text-blue-500 hover:text-blue-600">
-              <FaFacebook />
-            </a>
-            <a href="#" className="text-blue-400 hover:text-blue-500">
-              <FaTwitter />
-            </a>
-            <a href="#" className="text-pink-500 hover:text-pink-600">
-              <FaInstagram />
-            </a>
-          </div>
+import Image from "next/image";
+import fb from "@/images/facebook.png";
+import instagram from "@/images/ant-design_instagram-outlined.png";
+import twitter from "@/images/ant-design_twitter-outlined.png"
+export default function Footer() {
+    return (
+        <footer className="bg-white relative flex flex-col py-10">
+    {/* Top Section */}
+    <section className="bg-[#ffffff] py-10">
+      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center">
+        <div className="flex flex-col">
+          <h1 className="text-[#252b42] text-2xl font-bold leading-loose tracking-tight">Bandage</h1>
         </div>
-
-        {/* Links Section: All items side by side */}
-        <div className="flex flex-wrap justify-between space-y-4 sm:space-y-0 mb-10">
-          {/* Column 1: Company Info */}
-          <div className="flex-1 min-w-[180px]">
-            <h3 className="font-bold text-gray-800 font-Montserrat">Company Info</h3>
-            <ul className="mt-4 space-y-2 font-Montserrat text-[#737373]">
-              <li><a href="#" className="hover:text-blue-500">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-500">Carrier</a></li>
-              <li><a href="#" className="hover:text-blue-500">We are hiring</a></li>
-              <li><a href="#" className="hover:text-blue-500">Blog</a></li>
-            </ul>
-          </div>
-
-          {/* Column 2: Legal */}
-          <div className="flex-1 min-w-[180px]">
-            <h3 className="font-bold text-gray-800 font-Montserrat">Legal</h3>
-            <ul className="mt-4 space-y-2 font-Montserrat text-[#737373]">
-              <li><a href="#" className="hover:text-blue-500">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-500">Carrier</a></li>
-              <li><a href="#" className="hover:text-blue-500">We are hiring</a></li>
-              <li><a href="#" className="hover:text-blue-500">Blog</a></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Features */}
-          <div className="flex-1 min-w-[180px]">
-            <h3 className="font-bold text-gray-800 font-Montserrat">Features</h3>
-            <ul className="mt-4 space-y-2 font-Montserrat text-[#737373]">
-              <li><a href="#" className="hover:text-blue-500">Business Marketing</a></li>
-              <li><a href="#" className="hover:text-blue-500">User Analytics</a></li>
-              <li><a href="#" className="hover:text-blue-500">Live Chat</a></li>
-              <li><a href="#" className="hover:text-blue-500">Unlimited Support</a></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Resources */}
-          <div className="flex-1 min-w-[180px]">
-            <h3 className="font-bold text-gray-800 font-Montserrat">Resources</h3>
-            <ul className="mt-4 space-y-2 font-Montserrat text-[#737373]">
-              <li><a href="#" className="hover:text-blue-500">iOS & Android</a></li>
-              <li><a href="#" className="hover:text-blue-500">Watch a Demo</a></li>
-              <li><a href="#" className="hover:text-blue-500">Customers</a></li>
-              <li><a href="#" className="hover:text-blue-500">API</a></li>
-            </ul>
-          </div>
-
-          {/* Column 5: Get In Touch */}
-          <div className="flex-1 min-w-[180px]">
-            <h3 className="font-bold text-gray-800 font-Montserrat">Get In Touch</h3>
-            <form className="mt-4">
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="font-Montserrat p-2 w-[321px] h-[58px] border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-blue-300 text-[#737373]"
-                />
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600"
-                >
-                  Subscribe
-                </button>
-              </div>
-              <p className="mt-2 text-sm text-gray-500">
-                Lore imp sum dolor Amit.
-              </p>
-            </form>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="mt-10 bg-gray-50 text-[#737373] py-2 text-left font-montserrat font-bold">
-          <p className="text-sm">
-            Made With Love By Finland All Right Reserved
-          </p>
+        <div className="flex gap-6 mt-6 lg:mt-0">
+          <Image src={fb} alt="fb" className="w-6 h-6 " />
+          <Image src={instagram} alt="insta" className="w-6 h-6 " />
+          <Image src={twitter} alt="twitter" className="w-6 h-6 " />
         </div>
       </div>
-    </footer>
-  );
-};
+    </section>
 
-export default Footer;
+  
+            {/* Divider */}
+            <div className="border-t border-[#e6e6e6]" />
+  
+            {/* Main Footer Content */}
+            <section className="bg-white py-12">
+                <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
+                    {/* Company Info */}
+                    <div>
+                        <h2 className="text-[#252b42] text-base font-bold">Company Info</h2>
+                        <nav className="flex flex-col gap-2.5 mt-3">
+                            <a href="#" className="text-[#727272] text-sm font-bold">About Us</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Careers</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">We Are Hiring</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Blog</a>
+                        </nav>
+                    </div>
+  
+                    {/* Legal */}
+                    <div>
+                        <h2 className="text-[#252b42] text-base font-bold">Legal</h2>
+                        <nav className="flex flex-col gap-2.5 mt-3">
+                            <a href="#" className="text-[#727272] text-sm font-bold">Terms of Service</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Privacy Policy</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Cookies</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Refund Policy</a>
+                        </nav>
+                    </div>
+  
+                    {/* Features */}
+                    <div>
+                        <h2 className="text-[#252b42] text-base font-bold">Features</h2>
+                        <nav className="flex flex-col gap-2.5 mt-3">
+                            <a href="#" className="text-[#727272] text-sm font-bold">Business Marketing</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">User Analytics</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Live Chat</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Unlimited Support</a>
+                        </nav>
+                    </div>
+  
+                    {/* Resources */}
+                    <div>
+                        <h2 className="text-[#252b42] text-base font-bold">Resources</h2>
+                        <nav className="flex flex-col gap-2.5 mt-3">
+                            <a href="#" className="text-[#727272] text-sm font-bold">iOS & Android</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Watch a Demo</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">Customers</a>
+                            <a href="#" className="text-[#727272] text-sm font-bold">API</a>
+                        </nav>
+                    </div>
+  
+                    {/* Get in Touch */}
+                    <div>
+                        <h2 className="text-[#252b42] text-base font-bold">Get In Touch</h2>
+                        <div className="mt-3">
+                            <div className="relative mb-4">
+                                <input
+                                    type="email"
+                                    className="w-full h-12 px-4 border border-[#e6e6e6] rounded-lg bg-[#f8f8f8] text-[#727272] text-sm font-normal"
+                                    placeholder="Your Email"
+                                />
+                                <button className="absolute right-0 top-0 h-12 px-4 bg-[#23a6f0] text-white text-sm font-normal rounded-r-lg">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <p className="text-[#727272] text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+  
+            {/* Bottom Section */}
+            <section className="bg-[#FAFAFA] py-4">
+                <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+                    <p className="text-[#727272] text-sm font-bold"> All rights reserved.</p>
+                    <div className="flex gap-4">
+                       
+                    </div>
+                </div>
+            </section>
+        </footer>
+    );
+  }
